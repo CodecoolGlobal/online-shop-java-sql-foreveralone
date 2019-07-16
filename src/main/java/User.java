@@ -2,7 +2,7 @@ public class User {
 
     private String name;
     private String password;
-    private int usserId;
+    private int userId;
     private boolean isAdmin;
 
     public String getName() {
@@ -14,7 +14,7 @@ public class User {
     }
 
     public int getUsserId() {
-        return usserId;
+        return userId;
     }
 
     public boolean isAdmin() {
@@ -30,7 +30,7 @@ public class User {
     }
 
     public void setUsserId(int usserId) {
-        this.usserId = usserId;
+        this.userId = usserId;
     }
 
     public void setAdmin(boolean admin) {

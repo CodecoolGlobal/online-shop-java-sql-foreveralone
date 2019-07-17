@@ -3,24 +3,25 @@ import  java.sql.*;
 public class SQLiteJDBC {
 
 
-    Connection c = null;
+    Connection connection = null;
 
 
-    public void connect(){
-
+    public Connection connect(){
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:onlineshop.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:onlineshop.db");
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
         System.out.println("opened database succesfully");
+        return connection;
     }
 
-    public void dissconnect(){
+
+    public void disconnect(){
         try {
-            c.close();
+            connection.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

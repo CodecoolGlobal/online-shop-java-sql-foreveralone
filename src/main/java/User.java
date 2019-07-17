@@ -5,6 +5,13 @@ public class User {
     private int userId;
     private boolean isAdmin;
 
+    public User(String name, String password, int userId, boolean isAdmin) {
+        this.name = name;
+        this.password = password;
+        this.userId = userId;
+        this.isAdmin = isAdmin;
+    }
+
     public String getName() {
         return name;
     }
@@ -13,7 +20,7 @@ public class User {
         return password;
     }
 
-    public int getUsserId() {
+    public int getUserId() {
         return userId;
     }
 
@@ -29,11 +36,12 @@ public class User {
         this.password = password;
     }
 
-    public void setUsserId(int usserId) {
+    public void setUserId(int usserId) {
         this.userId = usserId;
     }
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
     }
+
 }

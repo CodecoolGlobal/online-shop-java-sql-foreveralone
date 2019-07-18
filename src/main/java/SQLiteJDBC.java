@@ -8,13 +8,13 @@ public class SQLiteJDBC {
 
     public Connection connect(){
         try {
-            Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:onlineshop.db");
+            String url = "jdbc:sqlite:/Users/MartaSibielak/Desktop/online-shop-java-sql-foreveralone/src/main/resources/onlineshop.db";
+            connection = DriverManager.getConnection(url);
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-        System.out.println("opened database succesfully");
+        System.out.println("opened database successsfully");
         return connection;
     }
 

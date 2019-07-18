@@ -1,37 +1,50 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserController {
 
-    public void getUserName(){
+    public List getUserName(){
         UserDaoImpl userDao = new UserDaoImpl();
-        List<User> userName = userDao.getData();
-        for (User user: userName) {
-            System.out.println(user.getName());
+        List<User> users = userDao.getData();
+        List<String> userName = new ArrayList<>();
+        for (User user: users) {
+            userName.add(user.getName());
         }
+        System.out.println(userName);
+        return userName;
     }
 
-    public void getUserId(){
+    public List getUserId(){
         UserDaoImpl userDao = new UserDaoImpl();
-        List<User> userId = userDao.getData();
-        for (User user: userId) {
-            System.out.println(user.getUserId());
+        List<User> users = userDao.getData();
+        List<Integer> userId = new ArrayList<>();
+        for (User user: users) {
+            userId.add(user.getUserId());
         }
+        System.out.println(userId);
+        return userId;
     }
 
-    public void getUserPassword(){
+    public List getUserPassword(){
         UserDaoImpl userDao = new UserDaoImpl();
-        List<User> userPassword = userDao.getData();
-        for (User user: userPassword) {
-            System.out.println(user.getPassword());
+        List<User> users = userDao.getData();
+        List<String> userPassword = new ArrayList<>();
+        for (User user: users) {
+            userPassword.add(user.getPassword());
         }
+        System.out.println(userPassword);
+        return userPassword;
     }
 
-    public void getIsAdmin(){
+    public List getIsAdmin(){
         UserDaoImpl userDao = new UserDaoImpl();
-        List<User> isAdmin = userDao.getData();
-        for (User user: isAdmin) {
-            System.out.println(user.isAdmin());
+        List<User> users = userDao.getData();
+        List<Integer> isAdmin = new ArrayList<>();
+        for (User user: users) {
+            isAdmin.add(user.isAdmin());
         }
+        System.out.println(isAdmin);
+        return isAdmin;
     }
 
 

@@ -45,6 +45,15 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void deleteUser(User user) {
 
+        try {
+            sqlImplementation.doQuery("DELETE FROM user WHERE user_id = '"+ user.getUserId()+ "'");
+
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            sqlImplementation.closeQuery();
+        }
 
     }
 

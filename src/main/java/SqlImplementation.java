@@ -1,9 +1,11 @@
+import Interfaces.SQL;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SqlImplementation implements SQL{
+public class SqlImplementation implements SQL {
 
     SQLiteJDBC connect;
     Connection con;

@@ -17,7 +17,15 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public void deleteProduct(Product product) {
+        try {
+            sqlImplementation.doQuery("DELETE FROM product WHERE product_id = '"+ product.getId()+ "'");
 
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            sqlImplementation.closeQuery();
+        }
     }
 
     @Override

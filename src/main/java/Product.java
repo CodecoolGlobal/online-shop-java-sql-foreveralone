@@ -7,6 +7,8 @@ public class Product {
     Boolean isAvailable;
     Category category;
 
+
+
     public Integer getId() {
         return id;
     }

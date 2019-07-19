@@ -2,21 +2,25 @@ import java.util.List;
 
 public class Category {
 
-    private Integer id;
+    private int id;
     private String name;
     private Boolean isAvailable;
     private List<Product> products;
 
 
     public Category (String name){
-
+        this.name = name;
     }
 
-    public GetProducts(List<Product> products){
+    public String getName() {
+        return name;
+    }
+
+    public List GetProducts(List<Product> products){
+        return products;
+    }
+
+    /*public String ToString(){
         return;
-    }
-
-    public String ToString(){
-        return;
-    }
+    }*/
 }

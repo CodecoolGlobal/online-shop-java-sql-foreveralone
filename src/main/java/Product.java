@@ -5,7 +5,7 @@ public class Product {
     Integer price;
     Integer amount;
     Boolean isAvailable;
-    Category category;
+    String category;
 
 
 
@@ -49,23 +49,20 @@ public class Product {
         isAvailable = available;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 
 
-    public Product(String name, Integer price, Integer amount, Category category) {
+    public Product(String name, Integer price, Integer amount, String category) {
         this.name = name;
         this.price = price;
         this.amount = amount;
         this.category = category;
     }
 
-    public String ToString(){
+    /*public String ToString(){
         return;
-    }
+    }*/
 }

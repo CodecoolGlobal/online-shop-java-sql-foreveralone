@@ -25,6 +25,32 @@ public class UserDaoImpl implements UserDao {
 
                 User user = new User(userName, userPassword, userId, isAdmin);
                 userList.add(user);
+                System.out.println(userList);
+            }
+
+        } catch(Exception e) {
+            System.out.println(e);
+        } finally {
+            sqlImplementation.closeQuery();
+        }
+        return userList;
+    }
+
+
+    public List readUser(String userLoginName, String userLoginPassword){
+
+        ResultSet resultSet = sqlImplementation.selectQuery("SELECT * FROM user WHERE user_name = '"+ userLoginName + " AND password = " + userLoginPassword +"'");
+        List<User> userList = new ArrayList<>();
+        try {
+            while (resultSet.next()){
+                int userId = resultSet.getInt("user_id");
+                String userName = resultSet.getString("user_name");
+                String userPassword = resultSet.getString("user_password");
+                int isAdmin = resultSet.getInt("is_admin");
+
+                User user = new User(userName, userPassword, userId, isAdmin);
+                userList.add(user);
+                System.out.println(userList);
             }
 
         } catch(Exception e) {
@@ -37,7 +63,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAllUser() {
+
         List<User> userList = new ArrayList<>();
+
+        System.out.println(userList);
         return userList;
     }
 

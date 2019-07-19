@@ -53,7 +53,7 @@ public class ProductDaoImpl implements ProductDao {
                 int isAvailable = resultSet.getInt("is_available");
                 String category = resultSet.getString("category");
 
-                Product product = new Product(productName, productPrice, productId, category, productAmount, isAvailable);
+                Product product = new Product(productName, productPrice, productId, category);
                 productList.add(product);
                 System.out.println(productList);
             }

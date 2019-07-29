@@ -1,14 +1,17 @@
+package category;
+
+import Product.Product;
 import java.util.List;
 
 public class Category {
 
     private int id;
     private String name;
-    private Boolean isAvailable;
+    private String isAvailable;
     private List<Product> products;
 
 
-    public Category(int id, String name, Boolean isAvailable, List<Product> products) {
+    public Category(int id, String name, String isAvailable, List<Product> products) {
         this.id = id;
         this.name = name;
         this.isAvailable = isAvailable;
@@ -19,8 +22,8 @@ public class Category {
         return name;
     }
 
-    public List getProducts(List<Product> products){
-        return products;
+    public List getProducts(){
+        return this.products;
     }
 
 
@@ -28,13 +31,13 @@ public class Category {
         return this.id;
     }
 
-    public boolean getStatus(){
+    public String getStatus(){
         return isAvailable;
     }
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "category.Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", isAvailable=" + isAvailable +

@@ -62,7 +62,18 @@ public class Product {
         this.category = category;
     }
 
-    /*public String ToString(){
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", amount=" + amount +
+                ", isAvailable=" + isAvailable +
+                ", category='" + category + '\'' +
+                '}';
+    }
+/*public String ToString(){
         return;
     }*/
 }

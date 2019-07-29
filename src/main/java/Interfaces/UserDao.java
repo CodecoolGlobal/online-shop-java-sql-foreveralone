@@ -1,3 +1,5 @@
+package User;
+
 import java.util.List;
 
 public interface UserDao<T> {
@@ -8,3 +10,6 @@ public interface UserDao<T> {
     List<T> getData();
 
 }
+
+
+//typy generyczne w javie

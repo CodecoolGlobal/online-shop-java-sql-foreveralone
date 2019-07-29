@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class UserDaoImpl implements UserDao {
 
-    SqlImplementation sqlImplementation;
+    public SqlImplementation sqlImplementation;
 
     public UserDaoImpl(){
         sqlImplementation = new SqlImplementation();
@@ -12,7 +12,7 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
-    public List getData(){
+    public List getData(){   //wstawic typ generyczny <T>
 
         ResultSet resultSet = sqlImplementation.selectQuery("select * from user");
         List<User> userList = new ArrayList<>();

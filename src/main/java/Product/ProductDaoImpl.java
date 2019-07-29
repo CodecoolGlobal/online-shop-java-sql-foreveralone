@@ -11,6 +11,23 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
+    public void createTable(){
+        try {
+            sqlImplementation.doQuery("CREATE TABLE IF NOT EXISTS product (\n"
+                    + "	product_id integer PRIMARY KEY,\n"
+                    + "	product_name text NOT NULL,\n"
+                    + "	product_price integer NOT NULL\n"
+                    + "	is_available integer NOT NULL\n"
+                    + "	product_price integer NOT NULL\n"
+                    + "	FOREIGN KEY category_id REFERENCES category(category_id) NOT NULL\n"
+                    + ");");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    @Override
     public List getAllProduct() {
         return null;
     }
@@ -31,7 +48,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public void addProduct(Product product) {
         try {
-            sqlImplementation.doQuery("insert into product (product_id, product_name, product_price, product_amount, category) VALUES ('"+ product.getId() + "','"+ product.getName() +"', '"+ product.getPrice() +"','"+ product.getAmount() +"','"+ product.getCategory() +"')");
+            sqlImplementation.doQuery("insert into product (product_id, product_name, product_price, product_amount, category_id) VALUES ('"+ product.getId() + "','"+ product.getName() +"', '"+ product.getPrice() +"','"+ product.getAmount() +"','"+ product.getCategory() +"')");
         } catch (Exception e){
             System.out.println(e);
         } finally {

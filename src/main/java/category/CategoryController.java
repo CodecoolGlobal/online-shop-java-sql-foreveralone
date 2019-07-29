@@ -1,3 +1,7 @@
+package category;
+
+import Product.Product;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +34,7 @@ public class CategoryController {
         List<Category> categories = categoryDao.getData();
         List<Product> products = new ArrayList<>();
         for (Category category: categories) {
-            products.add();
+            products.addAll(category.getProducts());
         }
         System.out.println(products);
         return products;
@@ -39,7 +43,7 @@ public class CategoryController {
     public List getStatus(){
         CategoryDaoImpl categoryDao = new CategoryDaoImpl();
         List<Category> categories = categoryDao.getData();
-        List<Boolean> isAvailable = new ArrayList<>();
+        List<String> isAvailable = new ArrayList<>();
         for (Category category: categories) {
             isAvailable.add(category.getStatus());
         }

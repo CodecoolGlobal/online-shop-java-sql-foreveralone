@@ -1,7 +1,11 @@
-import javax.sql.rowset.serial.SQLInputImpl;
+package category;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import Interfaces.CategoryDao;
+import Product.Product;
+import SQL.SqlImplementation;
 
 public class CategoryDaoImpl implements CategoryDao {
 
@@ -13,6 +17,19 @@ public class CategoryDaoImpl implements CategoryDao {
 
         System.out.println(categoryList);
         return categoryList;
+    }
+
+    @Override
+    public void createTable() {
+        try {
+            sqlImplementation.doQuery("CREATE TABLE IF NOT EXISTS category (\n"
+                    + "	category_id integer PRIMARY KEY,\n"
+                    + "	category_name text NOT NULL,\n"
+                    + "	is_available integer NOT NULL\n"
+                    + ");");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
@@ -46,14 +63,16 @@ public class CategoryDaoImpl implements CategoryDao {
     public List getData() {
         ResultSet resultSet = sqlImplementation.selectQuery("SELECT * from category");
         List<Category> categoryList = new ArrayList<>();
+
         try {
             while (resultSet.next()) {
                 int categoryId = resultSet.getInt("category_id");
                 String categoryName = resultSet.getString("category_name");
                 String isAvailable = resultSet.getString("is_available");
-                int productIdInCategory = resultSet.getInt("FOREIGN KEY (product_id) REFERENCES category(product_id)");
+                List<Product> products = new ArrayList<>();
 
-                Category category = new Category(categoryName, categoryId, isAvailable, productIdInCategory);
+
+                Category category = new Category(categoryId, categoryName, isAvailable, products);
                 categoryList.add(category);
                 System.out.println(categoryList);
             }
@@ -72,14 +91,14 @@ public class CategoryDaoImpl implements CategoryDao {
     public List readCategory(String categoryName, String isAvailable, int categoryId){
 
         ResultSet resultSet = sqlImplementation.selectQuery("SELECT * FROM category WHERE category_name = '"+ categoryName + " AND category_Id = " + categoryId +"'");
-        List<Category> categoryList = new ArrayList<>();
+        List<category.Category> categoryList = new ArrayList<>();
         try {
             while (resultSet.next()){
                 int categoryId = resultSet.getInt("category_id");
                 String categoryName = resultSet.getString("category_name");
                 String isAvailable = resultSet.getString("is_available");
 
-                Category category = new Category(categoryName, categoryId, isAvailable);
+                category.Category category = new category.Category(categoryName, categoryId, isAvailable);
                 categoryList.add(category);
                 System.out.println(categoryList);
             }

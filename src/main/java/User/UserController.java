@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserController {
-
     public List getUserName(){
         UserDaoImpl userDao = new UserDaoImpl();
         List<User> users = userDao.getData();
